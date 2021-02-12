@@ -1,15 +1,15 @@
-<h1>{{ site.title }}</h1>
-<ul id='links'>
-  {% for post in site.posts %}
-    {% if post.category == null %}
-    <li><a href='#{{ post.url }}'>{{ post.title }}</a></li>
-    {% endif %}
-  {% endfor %}
-  {% for category in site.categories %}
-  <li><h2>{{ category | first }}</h2>
-    <ul>
+<h1>{{ site.title }}</h1> <!--#referencing variable in config file-->
+<ul id='links'> <!--just making a bullet list with the id "links" -->
+  {% for post in site.posts %} <!--for loop cycling through site posts-->
+    {% if post.category == null %} <!--if posts does not have category...-->
+    <li><a href='#{{ post.url }}'>{{ post.title }}</a></li> <!--list them in menu-->
+    {% endif %} <!--end if statement-->
+  {% endfor %} <!--end for loop-->
+  {% for category in site.categories %} <!--loop through site categories-->
+  <li><h2>{{ category | first }}</h2> <!--list name of first category-->
+    <ul><!--make list-->
     {% for posts in category %}
-      {% for post in posts %}        
+      {% for post in posts %}
         <li class='{{ post.type }}'><a href='#{{ post.url }}'>{{ post.title }}</a></li>
       {% endfor %}
     {% endfor %}
