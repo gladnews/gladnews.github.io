@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<nav id='sidebar'>
-	{% include nav.html %}
+<nav id='sidebar'><!-- create a tag for navigation for disability access-->
+	{% include nav.html %} <!-- output the html from nav.html -->
 </nav>
 
-<section id='content'>
+<section id='content'><!-- replace everything in between with API request PHP code-->
 {% for post in site.posts %}
   <article class='{{ post.type }}'>
     <a name='{{ post.url }}' href='#{{ post.url }}'><h2>{% if post.type %}<code><b>{{ post.type }}</b> {{ post.url_path }}</code> {% endif %}{{ post.title }}</h2></a>
